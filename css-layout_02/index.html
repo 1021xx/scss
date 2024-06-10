@@ -7,76 +7,111 @@
   <title>CSS Layout_02</title>
 </head>
 <body>
-  <div class="phone">
-    <header class="header">
-      <span class="header__btn">👈</span>
-      <h1 class="header__title">MY CART</h1>
-      <span class="header__btn">🛒</span>
-    </header>
+  <div class="phonewrap">
+    <div class="phone">
+      <header class="header">
+        <span class="header__btn"><img src="./img/chevron-left.png"></span>
+        <h1 class="header__title">CHECKOUT</h1>
+        <span class="header__btn"><img src="./img/menu-03.png"></span>
+      </header>
 
-    <section class="total">
-      <span class="total__price">$3550</span>
-      <span class="total__subtitle">based on your 5 items</span>
-    </section>
-
-    <section class="items">
-      <article class="item">
-
-        <div class="item__info">
-          <div class="item__info-col">
-            <h2 class="item__title">POP TEMPLE PRINT T-SHIRT</h2>
-            <h3 class="item_subtitle">limited 2001</h3>
-          </div>
-
-          <div class="item__info-col">
-            <span class="item__total-price">$1990</span>
-            <div class="item__piece-price">$995 per piece</div>
-          </div>
+      <section class="snb info">
+        <div class="info-left">
+          <div class="info__page">01/02</div>
+          <div class="info__title">INFORMATION</div>
         </div>
+        <div class="info__nav"><img src="./img/Group 1.png"></div>
+      </section>
 
-        <div class="item__specs">
-          <div class="spec">
-            <span class="spec__title">SIZE</span>
-            <div class="spec__value">48 - L</div>
-          </div>
-          <div class="spec">
-            <span class="spec__title">QT</span>
-            <div class="spec__value">2 PCS</div>
-          </div>
+      <div class="cart">
+        <div class="cart__left">
+          <div class="cart__left-title">ORDER SUMMARY</div>
+          <div class="cart__left-subtitle">5 items in your cart</div>
         </div>
-
-        <img src="http://source.unsplash.com/random" class="item__photo">
-      </article>
-
-      <article class="item">
-
-        <div class="item__info">
-          <div class="item__info-col">
-            <h2 class="item__title">POP TEMPLE PRINT T-SHIRT</h2>
-            <h3 class="item_subtitle">limited 2001</h3>
-          </div>
-
-          <div class="item__info-col">
-            <span class="item__total-price">$1990</span>
-            <div class="item__piece-price">$995 per piece</div>
-          </div>
+        <div class="cart__right">
+          <div class="cart__right-price">€ 3550</div>
+          <img src="./img/chevron-down.png" class="cart__right-more">
         </div>
+      </div>
 
-        <div class="item__specs">
-          <div class="spec">
-            <span class="spec__title">SIZE</span>
-            <div class="spec__value">48 - L</div>
-          </div>
-          <div class="spec">
-            <span class="spec__title">QT</span>
-            <div class="spec__value">2 PCS</div>
-          </div>
-        </div>
+    </div>
 
-        <img src="http://source.unsplash.com/random" class="item__photo">
-      </article>
-    </section>
+    <div class="phone">
+      <header class="header">
+        <span class="header__btn"><img src="./img/chevron-left.png"><img src="./img/menu-03.png"></span>
+        <h1 class="header__title">MY CART</h1>
+        <span class="header__btn"><img src="./img/shopping-cart-01.png"></span>
+      </header>
+
+      <section class="snb total">
+        <span class="total__price">€ 3550</span>
+        <span class="total__subtitle">based on your 5 items</span>
+      </section>
+
+      <section class="items">
+        <article class="item">
+          <div class="item__info">
+            <div class="item__info-col">
+              <h2 class="item__title">POP TEMPLE PRINT <br>T-SHIRT</h2>
+              <h3 class="item_subtitle">limited 2021</h3>
+            </div>
+
+            <div class="item__info-col">
+              <span class="item__total-price">€ 1990</span>
+              <div class="item__piece-price">€ 995 per piece</div>
+            </div>
+          </div>
+
+          <div class="item__specs">
+            <div class="spec">
+              <span class="spec__title">SIZE</span>
+              <div class="spec__value">48 - L</div>
+            </div>
+            <div class="spec">
+              <span class="spec__title">QT</span>
+              <div class="spec__value">2 PCS</div>
+            </div>
+          </div>
+
+          <img src="./img/image 3.png" class="item__photo">
+
+          <div class="blank"></div>
+        </article>
+
+        <article class="item">
+          <div class="item__info">
+            <div class="item__info-col">
+              <h2 class="item__title">CHAIN REACTION TRAINERS</h2>
+              <h3 class="item_subtitle">limited 2021</h3>
+            </div>
+
+            <div class="item__info-col">
+              <span class="item__total-price">€850</span>
+              <div class="item__piece-price">€850 per piece</div>
+            </div>
+          </div>
+
+          <div class="item__specs">
+            <div class="spec">
+              <span class="spec__title">SIZE</span>
+              <div class="spec__value">45</div>
+            </div>
+            <div class="spec">
+              <span class="spec__title">QT</span>
+              <div class="spec__value">1 PCS</div>
+            </div>
+          </div>
+
+          <img src="./img/image 4.png" class="item__photo">
+          <div class="blank"></div>
+        </article>
+
+      </section>
+
+    </div>
+
 
   </div>
+
 </body>
 </html>
