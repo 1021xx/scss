@@ -1,0 +1,79 @@
+@import url(./reset.scss);
+
+$mainColor: #333;
+$borderWidth: 2px;
+
+
+body {
+  height: 100vh;
+  font-size: 14px;
+  background-color: $mainColor;
+  color: $mainColor;
+  display: grid;
+  grid-template-rows: 1fr 10fr;
+  gap: $borderWidth;
+}
+
+.header {
+  display: grid;
+  grid-template-rows: 2fr 1fr;
+  gap: $borderWidth;
+
+  .header__nav {
+    ul {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr) 1.5fr repeat(5, 1fr);
+      gap: $borderWidth;
+
+      .header__tab {
+        padding: 25px 0;
+        background-color: white;
+        text-align: center;
+        line-height: 2;
+
+        img {
+          vertical-align: middle;
+        }
+      }
+    }
+  }
+
+  .header__breadcrumbs {
+    background-color: white;
+    padding: 10px 75px;
+
+    .header__crumb:last-child {
+      opacity: 0.5;
+    }
+  }
+}
+
+.product {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: $borderWidth;
+
+  .product__img {
+    background-image: url(../img/product.png);
+    background-size: cover;
+    background-position: center;
+  }
+
+  .product__info {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+
+    .product__header {
+      background-color: white;
+
+    }
+  }
+
+  .product__footer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $borderWidth;
+    background-color: white;
+
+  }
+}
