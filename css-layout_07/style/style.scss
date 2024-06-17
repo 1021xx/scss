@@ -116,4 +116,20 @@ body {
 
     }
   }
+
+  .floating {
+    position: fixed;
+    top: 189px;
+    left: 545px;
+    background-image: url("../img/Subtract.png");
+    width: 30px;
+    height: 30px;
+    background-position: center;
+    background-size: cover;
+    line-height: 2;
+    font-weight: bold;
+    font-size: 16px;
+    transform: rotate(20deg);
+    background-color: transparent;
+  }
 }
