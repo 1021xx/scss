@@ -1,0 +1,119 @@
+@import url(./reset.scss);
+
+$bg: #EFEFEF;
+$borderWidth: 2px;
+
+body {
+  display: grid;
+  height: 100vh;
+  grid-template-rows: 10fr 10fr 45fr 35fr;
+  grid-template-columns: 0.3fr repeat(4, 1fr);
+  background-color: black;
+  gap: $borderWidth;
+  border: 5px solid black;
+  box-sizing: border-box;
+  font-size: 12px;
+  overflow: hidden;
+
+  div {
+    background-color: $bg;
+    padding: 20px;
+    font-weight: bolder;
+
+    &>* {
+      line-height: 1.6;
+    }
+  }
+
+  h1 {
+    font-weight: bolder;
+    font-size: 50px;
+    // transform: scaleY(0.8);
+    transform: scaleX(1.8);
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 40px;
+  }
+
+  h3 {
+    font-size: 20px;
+  }
+
+  .logo {
+    grid-area: span 2 / span 2;
+    //  grid-row-start grid-row-end / grid-column-start grid-column-end
+    text-align: center;
+  }
+
+  .title {
+    grid-column: span 3;
+  }
+
+  .banner {
+    grid-row: span 2;
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+
+    h2 {
+      width: max-content;
+      position: absolute;
+      animation: slide 10s linear infinite;
+
+    }
+  }
+
+  @keyframes slide {
+    0% {
+      transform: translateY(-3000%) rotate(90deg);
+    }
+
+    100% {
+      transform: translateY(calc(0% - 50px)) rotate(90deg);
+    }
+  }
+
+  .main__img {
+    background-image: url('https://picsum.photos/250/160');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .feature {
+    background-color: #C7C3CA;
+    display: flex;
+
+    div {
+      padding: 40px;
+      border: 1px solid black;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      a {
+        text-decoration: underline;
+        font-weight: 400;
+      }
+    }
+
+
+  }
+
+  .here {
+    grid-column: span 3;
+
+    h1 {
+      font-size: 180px;
+      line-height: 0.7;
+      padding-bottom: 40px;
+
+    }
+  }
+}
