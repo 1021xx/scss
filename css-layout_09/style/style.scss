@@ -1,0 +1,73 @@
+@import url(./reset.scss);
+
+
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  color: #01010E;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.poster {
+  background-color: #5EBD44;
+  width: 40%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 20fr 80fr;
+
+  .top {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    padding: 25px;
+
+    .top__box {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+
+      h1 {
+        font-size: 100px;
+        line-height: 0.5;
+      }
+
+      p {
+        font-size: 20px;
+        color: #DEE2D7;
+      }
+
+    }
+  }
+
+  .bottom {
+    overflow: hidden;
+
+    .circles {
+      background-color: #01010E;
+      display: grid;
+      height: 100%;
+      grid-template: repeat(11, 1fr) / repeat(11, 1fr);
+      gap: 5px;
+      transform: scale(1.1);
+
+      .circle {
+        background-color: #5EBD44;
+        border-radius: 50%;
+
+        @for $i from 1 through 9 {
+          @for $j from (11*$i)+2 through (11*$i)+1+$i {
+            &:nth-child(#{$j}) {
+              background-color: #DEE2D7;
+            }
+          }
+        }
+
+      }
+    }
+  }
+}
