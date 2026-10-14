@@ -1,0 +1,60 @@
+name: Refresh CSS practice dependencies
+
+on:
+  push:
+    branches:
+      - chore/configure-dependabot-scoped-projects-20261014
+    paths:
+      - .github/workflows/refresh-npm-deps.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Update all CSS exercise packages and check builds
+        shell: bash
+        run: |
+          set -uo pipefail
+          echo '| Folder | Install | Build |' >> "$GITHUB_STEP_SUMMARY"
+          echo '|---|---|---|' >> "$GITHUB_STEP_SUMMARY"
+          for dir in css-layout_*; do
+            [[ -f "$dir/package.json" ]] || continue
+            echo "::group::Updating $dir"
+            install_status=ok
+            build_status=not-run
+            (
+              cd "$dir" || exit 1
+              npm install --save-dev vite@latest sass@latest --no-audit --no-fund
+              npm audit fix --no-fund || npm audit fix --force --no-fund || true
+              npm audit --no-fund || true
+            ) || install_status=failed
+            if [[ "$install_status" == ok ]]; then
+              (cd "$dir" && npm run build) && build_status=ok || build_status=failed
+            fi
+            echo "| $dir | $install_status | $build_status |" >> "$GITHUB_STEP_SUMMARY"
+            echo "::endgroup::"
+          done
+      - name: Commit lockfiles and manifests on the update branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- css-layout_*/package.json css-layout_*/package-lock.json
+          if ! git diff --cached --quiet; then
+            git commit -m "fix(deps): refresh vulnerable npm packages across CSS exercises"
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          else
+            echo "No dependency file changes were produced." >> "$GITHUB_STEP_SUMMARY"
+          fi
